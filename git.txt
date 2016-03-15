@@ -16,3 +16,5 @@ git remote -v
 # Pushes the changes in your local repository up to the remote repository you specified as the origin
 git push origin master
 	
+# Actualizar cambios desde github
+git pull origin master
