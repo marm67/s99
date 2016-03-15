@@ -21,4 +21,10 @@ class ListSpec extends Specification with ListSoluciones {
   	length(lista) === 6
   }
 
+  "P05 Reverse a list" >> {
+    reverse(lista) === List(8, 5, 3, 2, 1, 1)
+  }
+
+  
+
 }
