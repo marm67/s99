@@ -12,7 +12,7 @@ trait ListSoluciones {
 		def f(acc: List[T], xs: List[T]): List[T] = {
 			xs match {
 				case Nil	=> acc
-				case ys		=> f( ys.last :: acc, xs.init )
+				case ys		=> f( ys.head :: acc , xs.tail )
 			}
 		}
 
