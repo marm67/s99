@@ -11,4 +11,6 @@ libraryDependencies ++= Seq(
 
 scalacOptions in Test ++= Seq("-Yrangepos")
 
+scalacOptions in ThisBuild ++= Seq("-unchecked", "-deprecation")
+
 // scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-language:implicitConversions")

@@ -25,6 +25,16 @@ class ListSpec extends Specification with ListSoluciones {
     reverse(lista) === List(8, 5, 3, 2, 1, 1)
   }
 
-  
+  "P06 Find out whether a list is a palindrome" >> {
+    isPalindrome(List(1, 2, 3, 2, 1)) === true
+  }
+
+  "P07 Flatten a nested list structure" >> {
+    flatten(List(List(1, 1), 2, List(3, List(5, 8)))) === List(1, 1, 2, 3, 5, 8)
+  }
+
+  "P08 Eliminate consecutive duplicates of list elements" >> {
+    compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) === List('a, 'b, 'c, 'a, 'd, 'e)
+  }
 
 }
