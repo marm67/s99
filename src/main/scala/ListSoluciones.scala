@@ -6,7 +6,7 @@ trait ListSoluciones {
 
 	def nth[T](i: Int, xs: List[T]): T = xs(i)
 
-	def length[T](xs: List[T]): Int = xs.foldLeft(0)( (acc,_) => acc+1 )
+	def length[T](xs: List[T]): Int = xs.foldLeft(0)( (acc,_) => acc + 1 )
 
 	def reverse[T](xs: List[T]): List[T] = xs.foldLeft(List[T]())( (acc,x) => x :: acc ) 
 
@@ -21,6 +21,13 @@ trait ListSoluciones {
 	
 	def compress[T](xs: List[T]): List[T] = xs.foldLeft(List[T]()) { (acc,x) => 
 		if ( length(acc) > 0 && acc.last == x ) acc else acc ++ List(x) 
-	} 
+	}
+
+	def pack[T](xs: List[T]): List[List[T]] = xs.foldLeft(List[List[T]]()) { (acc,x) => 
+		acc match {
+			case Nil	=> List(x) :: Nil
+			case _		=> if ( acc.last.head == x ) acc.init ++ List( x :: acc.last ) else acc ++ ( List(x) :: Nil )
+		}
+	}
 
 }
