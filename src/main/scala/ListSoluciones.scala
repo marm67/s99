@@ -30,4 +30,15 @@ trait ListSoluciones {
 		}
 	}
 
+	def encode[T](xs: List[T]): List[(Int, T)] = pack(xs).map { ys => (length(ys), ys.head) }
+
+	def encodeModified[T](xs: List[T]): List[Any] = 
+		pack(xs).map { ys => if ( ys.length == 1 ) ys.head else (length(ys), ys.head) }
+
+	def decode[T](xs: List[(Int, T)]): List[T] = {
+		def f[T](n: Int, x: T): List[T] = if (n == 0) List() else x :: f(n-1, x)
+		// xs.foldLeft(List[T]()) { (acc,p) => acc ++ f( p._1, p._2 ) }
+		xs flatMap { p => f(p._1, p._2) }
+	}
+
 }

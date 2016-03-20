@@ -41,4 +41,19 @@ class ListSpec extends Specification with ListSoluciones {
     pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) === List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
   }
 
+  "P10 (*) Run-length encoding of a list" >> {
+    encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) === 
+      List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
+  }
+
+  "P11 (*) Modified run-length encoding" >> {
+    encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
+      List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
+  }
+
+  "P12 (**) Decode a run-length encoded list" >> {
+    decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) ===
+      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+  }
+
 }
