@@ -38,7 +38,8 @@ class ListSpec extends Specification with ListSoluciones {
   }
 
   "P09 (**) Pack consecutive duplicates of list elements into sublists" >> {
-    pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) === List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
+    pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) === 
+      List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
   }
 
   "P10 (*) Run-length encoding of a list" >> {
@@ -54,6 +55,44 @@ class ListSpec extends Specification with ListSoluciones {
   "P12 (**) Decode a run-length encoded list" >> {
     decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) ===
       List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+  }
+
+  "P13 (**) Run-length encoding of a list (direct solution)" >> {
+    encodeDirect(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
+      List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
+  }
+
+  "P14 (*) Duplicate the elements of a list" >> {
+    duplicate(List('a, 'b, 'c, 'c, 'd)) === List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
+  }
+
+  "P15 (**) Duplicate the elements of a list a given number of times" >> {
+    duplicateN(3, List('a, 'b, 'c, 'c, 'd)) ===
+      List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)
+  }
+
+  "P16 (**) Drop every Nth element from a list" >> {
+    drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) ===
+      List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+  }
+
+  "P17 (*) Split a list into two parts" >> {
+    split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) ===
+      (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+  }
+
+  "P18 (**) Extract a slice from a list" >> {
+    slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) ===
+      List('d, 'e, 'f, 'g)
+  }
+
+  "P19 (**) Rotate a list N places to the left" >> {
+    rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) === 
+               List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+  }
+
+  "P20 (*) Remove the Kth element from a list" >> {
+    removeAt(1, List('a, 'b, 'c, 'd)) === (List('a, 'c, 'd),'b)
   }
 
 }
