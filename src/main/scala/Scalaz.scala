@@ -1,3 +1,5 @@
+// http://eed3si9n.com/learning-scalaz/FoldLeft.html
+
 object Scalaz {
 
     trait Monoid[A] {
